@@ -11797,6 +11797,15 @@ $( document ).ready(function(){
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>项目地址：<a href="https://github.com/georgethrax/ctr-prediction-demo">https://github.com/georgethrax/ctr-prediction-demo</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="&#29615;&#22659;&#37197;&#32622;">&#29615;&#22659;&#37197;&#32622;<a class="anchor-link" href="#&#29615;&#22659;&#37197;&#32622;">&#182;</a></h1>
 </div>
 </div>
@@ -11911,7 +11920,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11919,40 +11928,23 @@ $( document ).ready(function(){
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="k">import</span> <span class="n">DecisionTreeClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="k">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">log_loss</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/lix/anaconda3/lib/python3.6/site-packages/sklearn/cross_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
-  &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 读取数据集</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./ctr_data.csv&quot;</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">df</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -11965,7 +11957,7 @@ $( document ).ready(function(){
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[43]:</div>
 
 
 
@@ -12132,1353 +12124,9 @@ $( document ).ready(function(){
       <td>-1</td>
       <td>157</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>1.000072e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>d6137915</td>
-      <td>bb1ef334</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>16920</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1899</td>
-      <td>0</td>
-      <td>431</td>
-      <td>100077</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1.000072e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>8fda644b</td>
-      <td>25d4cfcd</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20362</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2333</td>
-      <td>0</td>
-      <td>39</td>
-      <td>-1</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1.000092e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>1</td>
-      <td>e151e245</td>
-      <td>7e091613</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20632</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2374</td>
-      <td>3</td>
-      <td>39</td>
-      <td>-1</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1.000095e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>2</td>
-      <td>15707</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>1.000126e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1002</td>
-      <td>0</td>
-      <td>84c7ba46</td>
-      <td>c4e18dd6</td>
-      <td>50e219e0</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>21689</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2496</td>
-      <td>3</td>
-      <td>167</td>
-      <td>100191</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>1.000187e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>1</td>
-      <td>e151e245</td>
-      <td>7e091613</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17747</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1974</td>
-      <td>2</td>
-      <td>39</td>
-      <td>100019</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>1.000197e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15701</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>1.000203e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>9e8cf15d</td>
-      <td>0d3cb7be</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>2</td>
-      <td>20596</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2161</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100148</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>1.000204e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>d6137915</td>
-      <td>bb1ef334</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19771</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2227</td>
-      <td>0</td>
-      <td>687</td>
-      <td>100077</td>
-      <td>48</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>1.000252e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>85f751fd</td>
-      <td>c4e18dd6</td>
-      <td>50e219e0</td>
-      <td>98fed791</td>
-      <td>d9b5648e</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20984</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2371</td>
-      <td>0</td>
-      <td>551</td>
-      <td>-1</td>
-      <td>46</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>1.000354e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15699</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100084</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>1.000359e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>d9750ee7</td>
-      <td>98572c79</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17914</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2043</td>
-      <td>2</td>
-      <td>39</td>
-      <td>-1</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>1.000411e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>2</td>
-      <td>15708</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100084</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>1.000418e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>1</td>
-      <td>0c2fe9d6</td>
-      <td>27e3c518</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>6558</td>
-      <td>320</td>
-      <td>50</td>
-      <td>571</td>
-      <td>2</td>
-      <td>39</td>
-      <td>-1</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>1.000448e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>85f751fd</td>
-      <td>c4e18dd6</td>
-      <td>50e219e0</td>
-      <td>66a5f0f3</td>
-      <td>d9b5648e</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>21234</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2434</td>
-      <td>3</td>
-      <td>163</td>
-      <td>100088</td>
-      <td>61</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>1.000451e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>543a539e</td>
-      <td>c7ca3108</td>
-      <td>3e814130</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20352</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2333</td>
-      <td>0</td>
-      <td>39</td>
-      <td>-1</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>1.000457e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15706</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>1.000467e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>543a539e</td>
-      <td>c7ca3108</td>
-      <td>3e814130</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20366</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2333</td>
-      <td>0</td>
-      <td>39</td>
-      <td>-1</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>1.000477e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15701</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>1.000525e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15706</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100083</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>1.000533e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1010</td>
-      <td>1</td>
-      <td>85f751fd</td>
-      <td>c4e18dd6</td>
-      <td>50e219e0</td>
-      <td>ffc6ffd0</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>4</td>
-      <td>0</td>
-      <td>21665</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2493</td>
-      <td>3</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>1.000554e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>1</td>
-      <td>e151e245</td>
-      <td>7e091613</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20984</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2371</td>
-      <td>0</td>
-      <td>551</td>
-      <td>100217</td>
-      <td>46</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>1.000561e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>85f751fd</td>
-      <td>c4e18dd6</td>
-      <td>50e219e0</td>
-      <td>54c5d545</td>
-      <td>2347f47a</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>21611</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2480</td>
-      <td>3</td>
-      <td>297</td>
-      <td>100111</td>
-      <td>61</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>1.000565e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>543a539e</td>
-      <td>c7ca3108</td>
-      <td>3e814130</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20366</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2333</td>
-      <td>0</td>
-      <td>39</td>
-      <td>-1</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>1.000595e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15706</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>9970</th>
-      <td>1.138175e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>1</td>
-      <td>0a742914</td>
-      <td>510bd839</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19950</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1800</td>
-      <td>3</td>
-      <td>167</td>
-      <td>100075</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>9971</th>
-      <td>1.138178e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9972</th>
-      <td>1.138187e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9973</th>
-      <td>1.138190e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100084</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9974</th>
-      <td>1.138195e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>f9c69707</td>
-      <td>e16ceb4b</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19665</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2253</td>
-      <td>2</td>
-      <td>303</td>
-      <td>-1</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <th>9975</th>
-      <td>1.138217e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>bb4524e7</td>
-      <td>d733bbc3</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20633</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2374</td>
-      <td>3</td>
-      <td>39</td>
-      <td>100148</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>9976</th>
-      <td>1.138244e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1010</td>
-      <td>1</td>
-      <td>85f751fd</td>
-      <td>c4e18dd6</td>
-      <td>50e219e0</td>
-      <td>6103360b</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>4</td>
-      <td>0</td>
-      <td>21665</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2493</td>
-      <td>3</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>9977</th>
-      <td>1.138256e+18</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>f282ab5a</td>
-      <td>61eb5bc4</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20596</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2161</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>9978</th>
-      <td>1.138274e+18</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15702</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9979</th>
-      <td>1.138277e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9980</th>
-      <td>1.138288e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15701</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100084</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9981</th>
-      <td>1.138292e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>395fa97c</td>
-      <td>3f797953</td>
-      <td>3e814130</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18993</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2161</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>9982</th>
-      <td>1.138309e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15706</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9983</th>
-      <td>1.138310e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>9b124c1e</td>
-      <td>db7a8013</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18993</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2161</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>9984</th>
-      <td>1.138318e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15702</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9985</th>
-      <td>1.138328e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>030440fe</td>
-      <td>08ba7db9</td>
-      <td>76b2941d</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20596</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2161</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>9986</th>
-      <td>1.138365e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>85f751fd</td>
-      <td>c4e18dd6</td>
-      <td>50e219e0</td>
-      <td>1779deee</td>
-      <td>2347f47a</td>
-      <td>...</td>
-      <td>1</td>
-      <td>2</td>
-      <td>20596</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2161</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100162</td>
-      <td>157</td>
-    </tr>
-    <tr>
-      <th>9987</th>
-      <td>1.138376e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>d9750ee7</td>
-      <td>98572c79</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17914</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2043</td>
-      <td>2</td>
-      <td>39</td>
-      <td>100084</td>
-      <td>32</td>
-    </tr>
-    <tr>
-      <th>9988</th>
-      <td>1.138381e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15704</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9989</th>
-      <td>1.138384e+18</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15703</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100084</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9990</th>
-      <td>1.138396e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>1</td>
-      <td>d9750ee7</td>
-      <td>98572c79</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17753</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1993</td>
-      <td>2</td>
-      <td>1063</td>
-      <td>-1</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>9991</th>
-      <td>1.138399e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>f9c69707</td>
-      <td>e16ceb4b</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19665</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2253</td>
-      <td>2</td>
-      <td>303</td>
-      <td>-1</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <th>9992</th>
-      <td>1.138400e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15707</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>100083</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9993</th>
-      <td>1.138405e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9994</th>
-      <td>1.138411e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>6256f5b4</td>
-      <td>28f93029</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>16859</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1887</td>
-      <td>3</td>
-      <td>39</td>
-      <td>-1</td>
-      <td>23</td>
-    </tr>
-    <tr>
-      <th>9995</th>
-      <td>1.138429e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>6c5b482c</td>
-      <td>7687a86e</td>
-      <td>3e814130</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17654</td>
-      <td>300</td>
-      <td>250</td>
-      <td>1994</td>
-      <td>2</td>
-      <td>39</td>
-      <td>100083</td>
-      <td>33</td>
-    </tr>
-    <tr>
-      <th>9996</th>
-      <td>1.138440e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>1fbe01fe</td>
-      <td>f3845767</td>
-      <td>28905ebd</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15701</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1722</td>
-      <td>0</td>
-      <td>35</td>
-      <td>-1</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <th>9997</th>
-      <td>1.138442e+19</td>
-      <td>1</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>1</td>
-      <td>5ee41ff2</td>
-      <td>17d996e6</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>16920</td>
-      <td>320</td>
-      <td>50</td>
-      <td>1899</td>
-      <td>0</td>
-      <td>431</td>
-      <td>-1</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>9998</th>
-      <td>1.138466e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>85f751fd</td>
-      <td>c4e18dd6</td>
-      <td>50e219e0</td>
-      <td>5e3f096f</td>
-      <td>2347f47a</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>21611</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2480</td>
-      <td>3</td>
-      <td>297</td>
-      <td>100111</td>
-      <td>61</td>
-    </tr>
-    <tr>
-      <th>9999</th>
-      <td>1.138513e+19</td>
-      <td>0</td>
-      <td>14102100</td>
-      <td>1005</td>
-      <td>0</td>
-      <td>83a0ad1a</td>
-      <td>5c9ae867</td>
-      <td>f028772b</td>
-      <td>ecad2386</td>
-      <td>7801e8d9</td>
-      <td>...</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18945</td>
-      <td>320</td>
-      <td>50</td>
-      <td>2153</td>
-      <td>3</td>
-      <td>427</td>
-      <td>100063</td>
-      <td>61</td>
-    </tr>
   </tbody>
 </table>
-<p>10000 rows × 24 columns</p>
+<p>5 rows × 24 columns</p>
 </div>
 </div>
 
@@ -13509,10 +12157,11 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols_data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span><span class="s1">&#39;banner_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;site_domain&#39;</span><span class="p">,</span>  <span class="s1">&#39;site_id&#39;</span><span class="p">,</span> <span class="s1">&#39;site_category&#39;</span><span class="p">,</span><span class="s1">&#39;app_id&#39;</span><span class="p">,</span> <span class="s1">&#39;app_category&#39;</span><span class="p">,</span>  <span class="s1">&#39;device_type&#39;</span><span class="p">,</span>  <span class="s1">&#39;device_conn_type&#39;</span><span class="p">,</span> <span class="s1">&#39;C14&#39;</span><span class="p">,</span> <span class="s1">&#39;C15&#39;</span><span class="p">,</span><span class="s1">&#39;C16&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols_data</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span><span class="s1">&#39;banner_pos&#39;</span><span class="p">,</span> <span class="s1">&#39;site_domain&#39;</span><span class="p">,</span>  <span class="s1">&#39;site_id&#39;</span><span class="p">,</span> <span class="s1">&#39;site_category&#39;</span><span class="p">,</span><span class="s1">&#39;app_id&#39;</span><span class="p">,</span>\
+             <span class="s1">&#39;app_category&#39;</span><span class="p">,</span>  <span class="s1">&#39;device_type&#39;</span><span class="p">,</span>  <span class="s1">&#39;device_conn_type&#39;</span><span class="p">,</span> <span class="s1">&#39;C14&#39;</span><span class="p">,</span> <span class="s1">&#39;C15&#39;</span><span class="p">,</span><span class="s1">&#39;C16&#39;</span><span class="p">]</span>
 <span class="n">cols_label</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;click&#39;</span><span class="p">]</span>
 </pre></div>
 
@@ -13532,7 +12181,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cols_data</span><span class="p">]</span> 
@@ -13556,7 +12205,7 @@ $( document ).ready(function(){
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cols_categorical</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;site_domain&#39;</span><span class="p">,</span> <span class="s1">&#39;site_id&#39;</span><span class="p">,</span> <span class="s1">&#39;site_category&#39;</span><span class="p">,</span> <span class="s1">&#39;app_id&#39;</span><span class="p">,</span> <span class="s1">&#39;app_category&#39;</span><span class="p">]</span>
@@ -13590,32 +12239,16 @@ app_category
 </div>
 </div>
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/lix/anaconda3/lib/python3.6/site-packages/ipykernel_launcher.py:6: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-  
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -13628,7 +12261,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[7]:</div>
+<div class="prompt output_prompt">Out[47]:</div>
 
 
 
@@ -13741,849 +12374,8 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
       <td>320</td>
       <td>50</td>
     </tr>
-    <tr>
-      <th>5</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>236</td>
-      <td>316</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>16920</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>45</td>
-      <td>218</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20362</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>1005</td>
-      <td>1</td>
-      <td>153</td>
-      <td>330</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20632</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>15707</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>1002</td>
-      <td>0</td>
-      <td>244</td>
-      <td>200</td>
-      <td>5</td>
-      <td>293</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>21689</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>1005</td>
-      <td>1</td>
-      <td>153</td>
-      <td>330</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17747</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15701</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>10</td>
-      <td>242</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>20596</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>236</td>
-      <td>316</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19771</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>244</td>
-      <td>202</td>
-      <td>5</td>
-      <td>187</td>
-      <td>2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20984</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15699</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>185</td>
-      <td>322</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17914</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>2</td>
-      <td>15708</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>1005</td>
-      <td>1</td>
-      <td>50</td>
-      <td>15</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>6558</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>244</td>
-      <td>202</td>
-      <td>5</td>
-      <td>132</td>
-      <td>9</td>
-      <td>1</td>
-      <td>0</td>
-      <td>21234</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>248</td>
-      <td>127</td>
-      <td>4</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20352</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15706</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>248</td>
-      <td>127</td>
-      <td>4</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20366</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15701</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15706</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>1010</td>
-      <td>1</td>
-      <td>244</td>
-      <td>202</td>
-      <td>5</td>
-      <td>312</td>
-      <td>2</td>
-      <td>4</td>
-      <td>0</td>
-      <td>21665</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>1005</td>
-      <td>1</td>
-      <td>153</td>
-      <td>330</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20984</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>244</td>
-      <td>202</td>
-      <td>5</td>
-      <td>105</td>
-      <td>2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>21611</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>248</td>
-      <td>127</td>
-      <td>4</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20366</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15706</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>9970</th>
-      <td>1005</td>
-      <td>1</td>
-      <td>91</td>
-      <td>13</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19950</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9971</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9972</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9973</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9974</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>283</td>
-      <td>367</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19665</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9975</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>267</td>
-      <td>282</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20633</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9976</th>
-      <td>1010</td>
-      <td>1</td>
-      <td>244</td>
-      <td>202</td>
-      <td>5</td>
-      <td>122</td>
-      <td>2</td>
-      <td>4</td>
-      <td>0</td>
-      <td>21665</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9977</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>112</td>
-      <td>357</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20596</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9978</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15702</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9979</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9980</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15701</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9981</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>71</td>
-      <td>80</td>
-      <td>4</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18993</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9982</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15706</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9983</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>272</td>
-      <td>240</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18993</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9984</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15702</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9985</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>4</td>
-      <td>3</td>
-      <td>8</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>20596</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9986</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>244</td>
-      <td>202</td>
-      <td>5</td>
-      <td>23</td>
-      <td>12</td>
-      <td>1</td>
-      <td>2</td>
-      <td>20596</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9987</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>185</td>
-      <td>322</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17914</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9988</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15704</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9989</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15703</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9990</th>
-      <td>1005</td>
-      <td>1</td>
-      <td>185</td>
-      <td>322</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17753</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9991</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>283</td>
-      <td>367</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>19665</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9992</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15707</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9993</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15705</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9994</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>52</td>
-      <td>147</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>16859</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9995</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>143</td>
-      <td>159</td>
-      <td>4</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>17654</td>
-      <td>300</td>
-      <td>250</td>
-    </tr>
-    <tr>
-      <th>9996</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>301</td>
-      <td>43</td>
-      <td>2</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>15701</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9997</th>
-      <td>1005</td>
-      <td>1</td>
-      <td>27</td>
-      <td>141</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>16920</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9998</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>244</td>
-      <td>202</td>
-      <td>5</td>
-      <td>119</td>
-      <td>2</td>
-      <td>1</td>
-      <td>0</td>
-      <td>21611</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <th>9999</th>
-      <td>1005</td>
-      <td>0</td>
-      <td>105</td>
-      <td>197</td>
-      <td>12</td>
-      <td>293</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>18945</td>
-      <td>320</td>
-      <td>50</td>
-    </tr>
   </tbody>
 </table>
-<p>10000 rows × 12 columns</p>
 </div>
 </div>
 
@@ -14604,10 +12396,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span>  \
+    <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14643,7 +12436,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">clf1</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
@@ -14665,7 +12458,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">clf1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -14681,7 +12474,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[10]:</div>
+<div class="prompt output_prompt">Out[50]:</div>
 
 
 
@@ -14717,11 +12510,14 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_score</span> <span class="o">=</span> <span class="n">clf1</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="n">clf1</span><span class="o">.</span><span class="n">classes_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> <span class="c1">#分类器预测的类别为1的概率值/分数值</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>        <span class="c1">#按阈值(默认0.5)将y_score二值化为0/1预测标签</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#分类器预测的类别为1的概率值/分数值</span>
+<span class="n">y_score</span> <span class="o">=</span> <span class="n">clf1</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="n">clf1</span><span class="o">.</span><span class="n">classes_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> 
+
+<span class="c1">#按阈值(默认0.5)将y_score二值化为0/1预测标签</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">clf1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>      
 </pre></div>
 
 </div>
@@ -14740,7 +12536,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
@@ -14763,7 +12559,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.819 0.6646154575328616 2.032632528109397
+<pre>0.8185 0.6679270587574431 2.000296253132511
 </pre>
 </div>
 </div>
@@ -14792,7 +12588,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">clf1_p1</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -14813,7 +12609,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">clf1_p1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -14829,7 +12625,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[14]:</div>
+<div class="prompt output_prompt">Out[54]:</div>
 
 
 
@@ -14859,7 +12655,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_score</span> <span class="o">=</span> <span class="n">clf1_p1</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="n">clf1_p1</span><span class="o">.</span><span class="n">classes_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> 
@@ -14881,7 +12677,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
@@ -14933,7 +12729,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">GradientBoostingClassifier</span>
@@ -14955,7 +12751,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">clf2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span> 
@@ -14971,19 +12767,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/lix/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py:578: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n_samples, ), for example using ravel().
-  y = column_or_1d(y, warn=True)
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[18]:</div>
+<div class="prompt output_prompt">Out[58]:</div>
 
 
 
@@ -15015,7 +12799,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_score</span> <span class="o">=</span> <span class="n">clf2</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X_test</span><span class="p">)[:,</span> <span class="n">clf2</span><span class="o">.</span><span class="n">classes_</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span> 
@@ -15037,7 +12821,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
@@ -15060,7 +12844,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>0.8225 0.687026914110774 0.4252496557629438
+<pre>0.8225 0.6870286695315133 0.4252471042570471
 </pre>
 </div>
 </div>
@@ -15083,16 +12867,6 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="&#27169;&#22411;&#36845;&#20195;">&#27169;&#22411;&#36845;&#20195;<a class="anchor-link" href="#&#27169;&#22411;&#36845;&#20195;">&#182;</a></h1><p>将收集数据、特征工程、模型选择、模型参数选择、训练测试等步骤反复迭代，直到评价指标令人满意为止。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>本文参考了 <a href="https://github.com/lenguyenthedat/kaggle-for-fun/blob/master/avazu-ctr-prediction/avazu-ctr-prediction.py">https://github.com/lenguyenthedat/kaggle-for-fun/blob/master/avazu-ctr-prediction/avazu-ctr-prediction.py</a>
-里面包括去除离群点、处理日期时间格式等操作</p>
 
 </div>
 </div>
