@@ -1,0 +1,1000 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{ctr-prediction-demo}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{环境配置}\label{ux73afux5883ux914dux7f6e}
+
+    \subsection{安装Anaconda3：python3发行版}\label{ux5b89ux88c5anaconda3python3ux53d1ux884cux7248}
+
+安装Anaconda3后，本文所用到的python库就已经包含在内了。 从
+https://www.anaconda.com/distribution/ 下载安装包并安装即可。
+
+    \subsection{运行代码}\label{ux8fd0ux884cux4ee3ux7801}
+
+从GitHub下载本项目https://github.com/georgethrax/ctr-prediction-demo
+后，有以下几种方式来运行代码：
+
+    \subsubsection{通过jupyter
+notebook运行代码（推荐的方式）}\label{ux901aux8fc7jupyter-notebookux8fd0ux884cux4ee3ux7801ux63a8ux8350ux7684ux65b9ux5f0f}
+
+\paragraph{打开控制台（Windows CMD，Linux/MacOS
+Terminal），跳转到本项目文件所在的目录}\label{ux6253ux5f00ux63a7ux5236ux53f0windows-cmdlinuxmacos-terminalux8df3ux8f6cux5230ux672cux9879ux76eeux6587ux4ef6ux6240ux5728ux7684ux76eeux5f55}
+
+\begin{verbatim}
+cd ctr-prediction-demo
+\end{verbatim}
+
+\paragraph{启动jupyter notebook}\label{ux542fux52a8jupyter-notebook}
+
+\begin{verbatim}
+jupyter notebook
+\end{verbatim}
+
+此时会自动浏览器 \#\#\#\#
+打开本项目中的\texttt{ctr-prediction-demo.ipynb}文件，按顺序执行代码即可
+
+    \subsubsection{通过spyder运行代码}\label{ux901aux8fc7spyderux8fd0ux884cux4ee3ux7801}
+
+spyder是随Anaconda安装好的一个轻量级python
+IDE。用spyder打开\texttt{ctr\_prediction-demo.py}并运行即可。
+
+    \subsubsection{直接在控制台运行代码}\label{ux76f4ux63a5ux5728ux63a7ux5236ux53f0ux8fd0ux884cux4ee3ux7801}
+
+\paragraph{打开控制台（Windows CMD，Linux/MacOS
+Terminal），跳转到本项目文件所在的目录}\label{ux6253ux5f00ux63a7ux5236ux53f0windows-cmdlinuxmacos-terminalux8df3ux8f6cux5230ux672cux9879ux76eeux6587ux4ef6ux6240ux5728ux7684ux76eeux5f55}
+
+\begin{verbatim}
+cd ctr-prediction-demo
+\end{verbatim}
+
+\paragraph{执行代码}\label{ux6267ux884cux4ee3ux7801}
+
+\begin{verbatim}
+python ctr-prediction-demo.py
+\end{verbatim}
+
+    \section{问题描述}\label{ux95eeux9898ux63cfux8ff0}
+
+\begin{itemize}
+\item
+  问题背景：2015在线广告点击率(CTR)预估大赛
+  https://www.kaggle.com/c/avazu-ctr-prediction
+\item
+  任务目标：根据广告的特征数据，预测一个广告是否被用户点击(点击/未点击的二分类问题)
+\item
+  数据文件：\texttt{ctr\_data.csv}。原始数据过大，这里截取10000条数据。
+\item
+  数据字段：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    id
+  \item
+    click 是否点击，0/1
+  \item
+    hour
+  \item
+    C1 一个个类别型特征(categorical feature)，具体业务含义被隐去
+  \item
+    banner\_pos
+  \item
+    site\_id
+  \item
+    site\_domain
+  \item
+    site\_category
+  \item
+    app\_id
+  \item
+    app\_domain
+  \item
+    app\_category
+  \item
+    device\_id
+  \item
+    device\_ip
+  \item
+    device\_model
+  \item
+    device\_type
+  \item
+    device\_conn\_type
+  \item
+    C14-C21 一些类别型特征
+  \end{itemize}
+\end{itemize}
+
+其中，id不使用，click 被作为标签，其他字段可以被用作特征
+
+    \section{收集数据}\label{ux6536ux96c6ux6570ux636e}
+
+    这里假设数据已经收集并整理为磁盘文件ctr\_data.csv
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}2}]:} \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{preprocessing} \PY{k}{import} \PY{n}{OneHotEncoder}\PY{p}{,} \PY{n}{LabelEncoder}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{tree} \PY{k}{import} \PY{n}{DecisionTreeClassifier}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{cross\PYZus{}validation} \PY{k}{import} \PY{n}{train\PYZus{}test\PYZus{}split}
+        \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{metrics} \PY{k}{import} \PY{n}{accuracy\PYZus{}score}\PY{p}{,} \PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{,} \PY{n}{log\PYZus{}loss}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+/home/lix/anaconda3/lib/python3.6/site-packages/sklearn/cross\_validation.py:41: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model\_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  "This module will be removed in 0.20.", DeprecationWarning)
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}3}]:} \PY{c+c1}{\PYZsh{} 读取数据集}
+        \PY{n}{df} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{./ctr\PYZus{}data.csv}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{index\PYZus{}col}\PY{o}{=}\PY{k+kc}{None}\PY{p}{)}
+        \PY{n}{df}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}3}]:}                 id  click      hour    C1  banner\_pos   site\_id site\_domain  \textbackslash{}
+        0     1.000009e+18      0  14102100  1005           0  1fbe01fe    f3845767   
+        1     1.000017e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        2     1.000037e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        3     1.000064e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        4     1.000068e+19      0  14102100  1005           1  fe8cc448    9166c161   
+        5     1.000072e+19      0  14102100  1005           0  d6137915    bb1ef334   
+        6     1.000072e+19      0  14102100  1005           0  8fda644b    25d4cfcd   
+        7     1.000092e+19      0  14102100  1005           1  e151e245    7e091613   
+        8     1.000095e+19      1  14102100  1005           0  1fbe01fe    f3845767   
+        9     1.000126e+19      0  14102100  1002           0  84c7ba46    c4e18dd6   
+        10    1.000187e+19      0  14102100  1005           1  e151e245    7e091613   
+        11    1.000197e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        12    1.000203e+19      0  14102100  1005           0  9e8cf15d    0d3cb7be   
+        13    1.000204e+19      0  14102100  1005           0  d6137915    bb1ef334   
+        14    1.000252e+19      0  14102100  1005           0  85f751fd    c4e18dd6   
+        15    1.000354e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        16    1.000359e+19      0  14102100  1005           0  d9750ee7    98572c79   
+        17    1.000411e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        18    1.000418e+19      0  14102100  1005           1  0c2fe9d6    27e3c518   
+        19    1.000448e+19      0  14102100  1005           0  85f751fd    c4e18dd6   
+        20    1.000451e+19      0  14102100  1005           0  543a539e    c7ca3108   
+        21    1.000457e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        22    1.000467e+19      0  14102100  1005           0  543a539e    c7ca3108   
+        23    1.000477e+19      1  14102100  1005           0  1fbe01fe    f3845767   
+        24    1.000525e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        25    1.000533e+19      0  14102100  1010           1  85f751fd    c4e18dd6   
+        26    1.000554e+19      0  14102100  1005           1  e151e245    7e091613   
+        27    1.000561e+19      1  14102100  1005           0  85f751fd    c4e18dd6   
+        28    1.000565e+19      0  14102100  1005           0  543a539e    c7ca3108   
+        29    1.000595e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        {\ldots}            {\ldots}    {\ldots}       {\ldots}   {\ldots}         {\ldots}       {\ldots}         {\ldots}   
+        9970  1.138175e+19      1  14102100  1005           1  0a742914    510bd839   
+        9971  1.138178e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        9972  1.138187e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        9973  1.138190e+19      1  14102100  1005           0  1fbe01fe    f3845767   
+        9974  1.138195e+19      0  14102100  1005           0  f9c69707    e16ceb4b   
+        9975  1.138217e+19      0  14102100  1005           0  bb4524e7    d733bbc3   
+        9976  1.138244e+19      0  14102100  1010           1  85f751fd    c4e18dd6   
+        9977  1.138256e+18      0  14102100  1005           0  f282ab5a    61eb5bc4   
+        9978  1.138274e+18      0  14102100  1005           0  1fbe01fe    f3845767   
+        9979  1.138277e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        9980  1.138288e+19      1  14102100  1005           0  1fbe01fe    f3845767   
+        9981  1.138292e+19      0  14102100  1005           0  395fa97c    3f797953   
+        9982  1.138309e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        9983  1.138310e+19      0  14102100  1005           0  9b124c1e    db7a8013   
+        9984  1.138318e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        9985  1.138328e+19      0  14102100  1005           0  030440fe    08ba7db9   
+        9986  1.138365e+19      0  14102100  1005           0  85f751fd    c4e18dd6   
+        9987  1.138376e+19      0  14102100  1005           0  d9750ee7    98572c79   
+        9988  1.138381e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        9989  1.138384e+18      0  14102100  1005           0  1fbe01fe    f3845767   
+        9990  1.138396e+19      1  14102100  1005           1  d9750ee7    98572c79   
+        9991  1.138399e+19      0  14102100  1005           0  f9c69707    e16ceb4b   
+        9992  1.138400e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        9993  1.138405e+19      0  14102100  1005           0  1fbe01fe    f3845767   
+        9994  1.138411e+19      0  14102100  1005           0  6256f5b4    28f93029   
+        9995  1.138429e+19      0  14102100  1005           0  6c5b482c    7687a86e   
+        9996  1.138440e+19      1  14102100  1005           0  1fbe01fe    f3845767   
+        9997  1.138442e+19      1  14102100  1005           1  5ee41ff2    17d996e6   
+        9998  1.138466e+19      0  14102100  1005           0  85f751fd    c4e18dd6   
+        9999  1.138513e+19      0  14102100  1005           0  83a0ad1a    5c9ae867   
+        
+             site\_category    app\_id app\_domain  {\ldots} device\_type device\_conn\_type  \textbackslash{}
+        0         28905ebd  ecad2386   7801e8d9  {\ldots}           1                2   
+        1         28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        2         28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        3         28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        4         0569f928  ecad2386   7801e8d9  {\ldots}           1                0   
+        5         f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        6         f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        7         f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        8         28905ebd  ecad2386   7801e8d9  {\ldots}           1                2   
+        9         50e219e0  ecad2386   7801e8d9  {\ldots}           0                0   
+        10        f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        11        28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        12        f028772b  ecad2386   7801e8d9  {\ldots}           1                2   
+        13        f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        14        50e219e0  98fed791   d9b5648e  {\ldots}           1                0   
+        15        28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        16        f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        17        28905ebd  ecad2386   7801e8d9  {\ldots}           1                2   
+        18        28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        19        50e219e0  66a5f0f3   d9b5648e  {\ldots}           1                0   
+        20        3e814130  ecad2386   7801e8d9  {\ldots}           1                0   
+        21        28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        22        3e814130  ecad2386   7801e8d9  {\ldots}           1                0   
+        23        28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        24        28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        25        50e219e0  ffc6ffd0   7801e8d9  {\ldots}           4                0   
+        26        f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        27        50e219e0  54c5d545   2347f47a  {\ldots}           1                0   
+        28        3e814130  ecad2386   7801e8d9  {\ldots}           1                0   
+        29        28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        {\ldots}            {\ldots}       {\ldots}        {\ldots}  {\ldots}         {\ldots}              {\ldots}   
+        9970      f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        9971      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9972      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9973      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9974      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9975      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9976      50e219e0  6103360b   7801e8d9  {\ldots}           4                0   
+        9977      f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        9978      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9979      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9980      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9981      3e814130  ecad2386   7801e8d9  {\ldots}           1                0   
+        9982      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9983      f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        9984      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9985      76b2941d  ecad2386   7801e8d9  {\ldots}           1                0   
+        9986      50e219e0  1779deee   2347f47a  {\ldots}           1                2   
+        9987      f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        9988      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9989      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9990      f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        9991      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9992      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9993      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9994      f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        9995      3e814130  ecad2386   7801e8d9  {\ldots}           1                0   
+        9996      28905ebd  ecad2386   7801e8d9  {\ldots}           1                0   
+        9997      f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        9998      50e219e0  5e3f096f   2347f47a  {\ldots}           1                0   
+        9999      f028772b  ecad2386   7801e8d9  {\ldots}           1                0   
+        
+                C14  C15  C16   C17  C18   C19     C20  C21  
+        0     15706  320   50  1722    0    35      -1   79  
+        1     15704  320   50  1722    0    35  100084   79  
+        2     15704  320   50  1722    0    35  100084   79  
+        3     15706  320   50  1722    0    35  100084   79  
+        4     18993  320   50  2161    0    35      -1  157  
+        5     16920  320   50  1899    0   431  100077  117  
+        6     20362  320   50  2333    0    39      -1  157  
+        7     20632  320   50  2374    3    39      -1   23  
+        8     15707  320   50  1722    0    35      -1   79  
+        9     21689  320   50  2496    3   167  100191   23  
+        10    17747  320   50  1974    2    39  100019   33  
+        11    15701  320   50  1722    0    35      -1   79  
+        12    20596  320   50  2161    0    35  100148  157  
+        13    19771  320   50  2227    0   687  100077   48  
+        14    20984  320   50  2371    0   551      -1   46  
+        15    15699  320   50  1722    0    35  100084   79  
+        16    17914  320   50  2043    2    39      -1   32  
+        17    15708  320   50  1722    0    35  100084   79  
+        18     6558  320   50   571    2    39      -1   32  
+        19    21234  320   50  2434    3   163  100088   61  
+        20    20352  320   50  2333    0    39      -1  157  
+        21    15706  320   50  1722    0    35      -1   79  
+        22    20366  320   50  2333    0    39      -1  157  
+        23    15701  320   50  1722    0    35      -1   79  
+        24    15706  320   50  1722    0    35  100083   79  
+        25    21665  320   50  2493    3    35      -1  117  
+        26    20984  320   50  2371    0   551  100217   46  
+        27    21611  320   50  2480    3   297  100111   61  
+        28    20366  320   50  2333    0    39      -1  157  
+        29    15706  320   50  1722    0    35      -1   79  
+        {\ldots}     {\ldots}  {\ldots}  {\ldots}   {\ldots}  {\ldots}   {\ldots}     {\ldots}  {\ldots}  
+        9970  19950  320   50  1800    3   167  100075   23  
+        9971  15705  320   50  1722    0    35      -1   79  
+        9972  15705  320   50  1722    0    35      -1   79  
+        9973  15705  320   50  1722    0    35  100084   79  
+        9974  19665  320   50  2253    2   303      -1   52  
+        9975  20633  320   50  2374    3    39  100148   23  
+        9976  21665  320   50  2493    3    35      -1  117  
+        9977  20596  320   50  2161    0    35      -1  157  
+        9978  15702  320   50  1722    0    35      -1   79  
+        9979  15705  320   50  1722    0    35      -1   79  
+        9980  15701  320   50  1722    0    35  100084   79  
+        9981  18993  320   50  2161    0    35      -1  157  
+        9982  15706  320   50  1722    0    35      -1   79  
+        9983  18993  320   50  2161    0    35      -1  157  
+        9984  15702  320   50  1722    0    35      -1   79  
+        9985  20596  320   50  2161    0    35      -1  157  
+        9986  20596  320   50  2161    0    35  100162  157  
+        9987  17914  320   50  2043    2    39  100084   32  
+        9988  15704  320   50  1722    0    35      -1   79  
+        9989  15703  320   50  1722    0    35  100084   79  
+        9990  17753  320   50  1993    2  1063      -1   33  
+        9991  19665  320   50  2253    2   303      -1   52  
+        9992  15707  320   50  1722    0    35  100083   79  
+        9993  15705  320   50  1722    0    35      -1   79  
+        9994  16859  320   50  1887    3    39      -1   23  
+        9995  17654  300  250  1994    2    39  100083   33  
+        9996  15701  320   50  1722    0    35      -1   79  
+        9997  16920  320   50  1899    0   431      -1  117  
+        9998  21611  320   50  2480    3   297  100111   61  
+        9999  18945  320   50  2153    3   427  100063   61  
+        
+        [10000 rows x 24 columns]
+\end{Verbatim}
+            
+    \section{特征工程}\label{ux7279ux5f81ux5de5ux7a0b}
+
+为简单起见，这里仅考虑特征选择和类别型特征编码。
+
+实际场景中，可能面临缺失值处理、离群点处理、日期型特征编码、数据降维等等。
+
+    \subsection{特征选择}\label{ux7279ux5f81ux9009ux62e9}
+
+设置用到的字段/特征/列
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}4}]:} \PY{n}{cols\PYZus{}data} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{C1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{banner\PYZus{}pos}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{site\PYZus{}domain}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{site\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{site\PYZus{}category}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{app\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{app\PYZus{}category}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{device\PYZus{}type}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}  \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{device\PYZus{}conn\PYZus{}type}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{C14}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{C15}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{C16}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        \PY{n}{cols\PYZus{}label} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{click}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+\end{Verbatim}
+
+
+    由设置好的特征字段，构造数据集X和标签y
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}5}]:} \PY{n}{X} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{n}{cols\PYZus{}data}\PY{p}{]} 
+        \PY{n}{y} \PY{o}{=} \PY{n}{df}\PY{p}{[}\PY{n}{cols\PYZus{}label}\PY{p}{]}  
+\end{Verbatim}
+
+
+    \subsection{特征编码}\label{ux7279ux5f81ux7f16ux7801}
+
+特征编码：将原始数据的字符串等特征转换为模型能够处理的数值型特征。LR,SVM类模型可以使用OneHotEncoder。决策树类模型可以使用LabelEncoder。
+
+为简单起见，本文仅讨论决策树类模型，故仅使用LabelEncoder特征编码
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}6}]:} \PY{n}{cols\PYZus{}categorical} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{site\PYZus{}domain}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{site\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{site\PYZus{}category}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{app\PYZus{}id}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{app\PYZus{}category}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}
+        \PY{n}{lbl} \PY{o}{=} \PY{n}{LabelEncoder}\PY{p}{(}\PY{p}{)}
+        
+        \PY{k}{for} \PY{n}{col} \PY{o+ow}{in} \PY{n}{cols\PYZus{}categorical}\PY{p}{:}
+            \PY{n+nb}{print}\PY{p}{(}\PY{n}{col}\PY{p}{)}
+            \PY{n}{X}\PY{p}{[}\PY{n}{col}\PY{p}{]} \PY{o}{=} \PY{n}{lbl}\PY{o}{.}\PY{n}{fit\PYZus{}transform}\PY{p}{(}\PY{n}{X}\PY{p}{[}\PY{n}{col}\PY{p}{]}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+site\_domain
+site\_id
+site\_category
+app\_id
+app\_category
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+/home/lix/anaconda3/lib/python3.6/site-packages/ipykernel\_launcher.py:6: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row\_indexer,col\_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html\#indexing-view-versus-copy
+  
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}7}]:} \PY{n}{X}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}7}]:}         C1  banner\_pos  site\_domain  site\_id  site\_category  app\_id  \textbackslash{}
+        0     1005           0          301       43              2     293   
+        1     1005           0          301       43              2     293   
+        2     1005           0          301       43              2     293   
+        3     1005           0          301       43              2     293   
+        4     1005           1          169      374              0     293   
+        5     1005           0          236      316             12     293   
+        6     1005           0           45      218             12     293   
+        7     1005           1          153      330             12     293   
+        8     1005           0          301       43              2     293   
+        9     1002           0          244      200              5     293   
+        10    1005           1          153      330             12     293   
+        11    1005           0          301       43              2     293   
+        12    1005           0           10      242             12     293   
+        13    1005           0          236      316             12     293   
+        14    1005           0          244      202              5     187   
+        15    1005           0          301       43              2     293   
+        16    1005           0          185      322             12     293   
+        17    1005           0          301       43              2     293   
+        18    1005           1           50       15              2     293   
+        19    1005           0          244      202              5     132   
+        20    1005           0          248      127              4     293   
+        21    1005           0          301       43              2     293   
+        22    1005           0          248      127              4     293   
+        23    1005           0          301       43              2     293   
+        24    1005           0          301       43              2     293   
+        25    1010           1          244      202              5     312   
+        26    1005           1          153      330             12     293   
+        27    1005           0          244      202              5     105   
+        28    1005           0          248      127              4     293   
+        29    1005           0          301       43              2     293   
+        {\ldots}    {\ldots}         {\ldots}          {\ldots}      {\ldots}            {\ldots}     {\ldots}   
+        9970  1005           1           91       13             12     293   
+        9971  1005           0          301       43              2     293   
+        9972  1005           0          301       43              2     293   
+        9973  1005           0          301       43              2     293   
+        9974  1005           0          283      367              2     293   
+        9975  1005           0          267      282              2     293   
+        9976  1010           1          244      202              5     122   
+        9977  1005           0          112      357             12     293   
+        9978  1005           0          301       43              2     293   
+        9979  1005           0          301       43              2     293   
+        9980  1005           0          301       43              2     293   
+        9981  1005           0           71       80              4     293   
+        9982  1005           0          301       43              2     293   
+        9983  1005           0          272      240             12     293   
+        9984  1005           0          301       43              2     293   
+        9985  1005           0            4        3              8     293   
+        9986  1005           0          244      202              5      23   
+        9987  1005           0          185      322             12     293   
+        9988  1005           0          301       43              2     293   
+        9989  1005           0          301       43              2     293   
+        9990  1005           1          185      322             12     293   
+        9991  1005           0          283      367              2     293   
+        9992  1005           0          301       43              2     293   
+        9993  1005           0          301       43              2     293   
+        9994  1005           0           52      147             12     293   
+        9995  1005           0          143      159              4     293   
+        9996  1005           0          301       43              2     293   
+        9997  1005           1           27      141             12     293   
+        9998  1005           0          244      202              5     119   
+        9999  1005           0          105      197             12     293   
+        
+              app\_category  device\_type  device\_conn\_type    C14  C15  C16  
+        0                0            1                 2  15706  320   50  
+        1                0            1                 0  15704  320   50  
+        2                0            1                 0  15704  320   50  
+        3                0            1                 0  15706  320   50  
+        4                0            1                 0  18993  320   50  
+        5                0            1                 0  16920  320   50  
+        6                0            1                 0  20362  320   50  
+        7                0            1                 0  20632  320   50  
+        8                0            1                 2  15707  320   50  
+        9                0            0                 0  21689  320   50  
+        10               0            1                 0  17747  320   50  
+        11               0            1                 0  15701  320   50  
+        12               0            1                 2  20596  320   50  
+        13               0            1                 0  19771  320   50  
+        14               2            1                 0  20984  320   50  
+        15               0            1                 0  15699  320   50  
+        16               0            1                 0  17914  320   50  
+        17               0            1                 2  15708  320   50  
+        18               0            1                 0   6558  320   50  
+        19               9            1                 0  21234  320   50  
+        20               0            1                 0  20352  320   50  
+        21               0            1                 0  15706  320   50  
+        22               0            1                 0  20366  320   50  
+        23               0            1                 0  15701  320   50  
+        24               0            1                 0  15706  320   50  
+        25               2            4                 0  21665  320   50  
+        26               0            1                 0  20984  320   50  
+        27               2            1                 0  21611  320   50  
+        28               0            1                 0  20366  320   50  
+        29               0            1                 0  15706  320   50  
+        {\ldots}            {\ldots}          {\ldots}               {\ldots}    {\ldots}  {\ldots}  {\ldots}  
+        9970             0            1                 0  19950  320   50  
+        9971             0            1                 0  15705  320   50  
+        9972             0            1                 0  15705  320   50  
+        9973             0            1                 0  15705  320   50  
+        9974             0            1                 0  19665  320   50  
+        9975             0            1                 0  20633  320   50  
+        9976             2            4                 0  21665  320   50  
+        9977             0            1                 0  20596  320   50  
+        9978             0            1                 0  15702  320   50  
+        9979             0            1                 0  15705  320   50  
+        9980             0            1                 0  15701  320   50  
+        9981             0            1                 0  18993  320   50  
+        9982             0            1                 0  15706  320   50  
+        9983             0            1                 0  18993  320   50  
+        9984             0            1                 0  15702  320   50  
+        9985             0            1                 0  20596  320   50  
+        9986            12            1                 2  20596  320   50  
+        9987             0            1                 0  17914  320   50  
+        9988             0            1                 0  15704  320   50  
+        9989             0            1                 0  15703  320   50  
+        9990             0            1                 0  17753  320   50  
+        9991             0            1                 0  19665  320   50  
+        9992             0            1                 0  15707  320   50  
+        9993             0            1                 0  15705  320   50  
+        9994             0            1                 0  16859  320   50  
+        9995             0            1                 0  17654  300  250  
+        9996             0            1                 0  15701  320   50  
+        9997             0            1                 0  16920  320   50  
+        9998             2            1                 0  21611  320   50  
+        9999             0            1                 0  18945  320   50  
+        
+        [10000 rows x 12 columns]
+\end{Verbatim}
+            
+    \subsection{划分训练集、测试集}\label{ux5212ux5206ux8badux7ec3ux96c6ux6d4bux8bd5ux96c6}
+
+这里采用训练集占80\%，测试集占20\%
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}8}]:} \PY{n}{X\PYZus{}train}\PY{p}{,}\PY{n}{X\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}test} \PY{o}{=} \PY{n}{train\PYZus{}test\PYZus{}split}\PY{p}{(}\PY{n}{X}\PY{p}{,} \PY{n}{y}\PY{p}{,} \PY{n}{test\PYZus{}size}\PY{o}{=}\PY{l+m+mf}{0.2}\PY{p}{,} \PY{n}{random\PYZus{}state}\PY{o}{=}\PY{l+m+mi}{0}\PY{p}{)}
+\end{Verbatim}
+
+
+    \section{建立一个模型，并训练、测试}\label{ux5efaux7acbux4e00ux4e2aux6a21ux578bux5e76ux8badux7ec3ux6d4bux8bd5}
+
+    这里调用一个sklearn算法库中现成的决策树分类器DecisionTreeClassifier，记为clf1
+
+    \subsection{创建模型}\label{ux521bux5efaux6a21ux578b}
+
+创建一个分类模型，命名为clf1，使用默认模型参数
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}9}]:} \PY{n}{clf1} \PY{o}{=} \PY{n}{DecisionTreeClassifier}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsection{训练}\label{ux8badux7ec3}
+
+在训练集上训练分类器clf1
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}10}]:} \PY{n}{clf1}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}10}]:} DecisionTreeClassifier(class\_weight=None, criterion='gini', max\_depth=None,
+                     max\_features=None, max\_leaf\_nodes=None,
+                     min\_impurity\_decrease=0.0, min\_impurity\_split=None,
+                     min\_samples\_leaf=1, min\_samples\_split=2,
+                     min\_weight\_fraction\_leaf=0.0, presort=False, random\_state=None,
+                     splitter='best')
+\end{Verbatim}
+            
+    \subsection{预测}\label{ux9884ux6d4b}
+
+使用训练好的分类器clf1，在测试集上预测分类结果 预测结果有两种形式 -
+y\_score: 为每个测试样本 x 预测一个0.0\textasciitilde{}1.0的实数，表示 x
+被分类为类别1的概率 - y\_pred: 为每个测试样本 x 预测一个0/1类别标签。当
+y\_score(x) \textgreater{} 0.5 时，y\_pred(x) = 1。当 y\_score(x)
+\textless{} 0.5 时，y\_pred(x) = 0。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}11}]:} \PY{n}{y\PYZus{}score} \PY{o}{=} \PY{n}{clf1}\PY{o}{.}\PY{n}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{clf1}\PY{o}{.}\PY{n}{classes\PYZus{}} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{]} \PY{c+c1}{\PYZsh{}分类器预测的类别为1的概率值/分数值}
+         \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{clf1}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}        \PY{c+c1}{\PYZsh{}按阈值(默认0.5)将y\PYZus{}score二值化为0/1预测标签}
+\end{Verbatim}
+
+
+    \subsection{评估}\label{ux8bc4ux4f30}
+
+评估预测结果，使用ACC, AUC, logloss等评价指标。ACC,
+AUC越接近于1，logloss越小，分类效果越好。
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}12}]:} \PY{n}{acc} \PY{o}{=} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred}\PY{p}{)}
+         \PY{n}{auc} \PY{o}{=} \PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}score}\PY{p}{)}
+         \PY{n}{logloss} \PY{o}{=} \PY{n}{log\PYZus{}loss}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}score}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{acc}\PY{p}{,} \PY{n}{auc}\PY{p}{,} \PY{n}{logloss}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.819 0.6646154575328616 2.032632528109397
+
+    \end{Verbatim}
+
+    \section{修改模型参数，重新训练、测试}\label{ux4feeux6539ux6a21ux578bux53c2ux6570ux91cdux65b0ux8badux7ec3ux6d4bux8bd5}
+
+为模型clf1换一组参数，记为clf1\_p1
+
+出于演示目的，不妨令clf1\_p1中的一个模型参数修改为
+max\_leaf\_nodes=10。(clf1原参数为max\_leaf\_nodes=None)
+
+    \subsection{创建模型}\label{ux521bux5efaux6a21ux578b}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}13}]:} \PY{n}{clf1\PYZus{}p1} \PY{o}{=} \PY{n}{DecisionTreeClassifier}\PY{p}{(} \PY{n}{max\PYZus{}leaf\PYZus{}nodes}\PY{o}{=}\PY{l+m+mi}{10}\PY{p}{)}
+\end{Verbatim}
+
+
+    \subsection{训练}\label{ux8badux7ec3}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}14}]:} \PY{n}{clf1\PYZus{}p1}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}14}]:} DecisionTreeClassifier(class\_weight=None, criterion='gini', max\_depth=None,
+                     max\_features=None, max\_leaf\_nodes=10,
+                     min\_impurity\_decrease=0.0, min\_impurity\_split=None,
+                     min\_samples\_leaf=1, min\_samples\_split=2,
+                     min\_weight\_fraction\_leaf=0.0, presort=False, random\_state=None,
+                     splitter='best')
+\end{Verbatim}
+            
+    \subsection{预测}\label{ux9884ux6d4b}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}15}]:} \PY{n}{y\PYZus{}score} \PY{o}{=} \PY{n}{clf1\PYZus{}p1}\PY{o}{.}\PY{n}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{clf1\PYZus{}p1}\PY{o}{.}\PY{n}{classes\PYZus{}} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{]} 
+         \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{clf1\PYZus{}p1}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \subsection{评估}\label{ux8bc4ux4f30}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}16}]:} \PY{n}{acc} \PY{o}{=} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred}\PY{p}{)}
+         \PY{n}{auc} \PY{o}{=} \PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}score}\PY{p}{)}
+         \PY{n}{logloss} \PY{o}{=} \PY{n}{log\PYZus{}loss}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}score}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{acc}\PY{p}{,} \PY{n}{auc}\PY{p}{,} \PY{n}{logloss}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.828 0.6583099862375015 0.43256841278416175
+
+    \end{Verbatim}
+
+    \textbf{从评估指标来看，模型clf1\_p1比clf1差。}
+
+    \section{更换模型，重新训练、测试}\label{ux66f4ux6362ux6a21ux578bux91cdux65b0ux8badux7ec3ux6d4bux8bd5}
+
+这里换一个sklearn库中现成的GradientBoostingClassifier，记为clf2
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}17}]:} \PY{k+kn}{from} \PY{n+nn}{sklearn}\PY{n+nn}{.}\PY{n+nn}{ensemble} \PY{k}{import} \PY{n}{GradientBoostingClassifier}
+         \PY{n}{clf2} \PY{o}{=} \PY{n}{GradientBoostingClassifier}\PY{p}{(}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \subsection{训练}\label{ux8badux7ec3}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}18}]:} \PY{n}{clf2}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{X\PYZus{}train}\PY{p}{,} \PY{n}{y\PYZus{}train}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+/home/lix/anaconda3/lib/python3.6/site-packages/sklearn/utils/validation.py:578: DataConversionWarning: A column-vector y was passed when a 1d array was expected. Please change the shape of y to (n\_samples, ), for example using ravel().
+  y = column\_or\_1d(y, warn=True)
+
+    \end{Verbatim}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}18}]:} GradientBoostingClassifier(criterion='friedman\_mse', init=None,
+                       learning\_rate=0.1, loss='deviance', max\_depth=3,
+                       max\_features=None, max\_leaf\_nodes=None,
+                       min\_impurity\_decrease=0.0, min\_impurity\_split=None,
+                       min\_samples\_leaf=1, min\_samples\_split=2,
+                       min\_weight\_fraction\_leaf=0.0, n\_estimators=100,
+                       presort='auto', random\_state=None, subsample=1.0, verbose=0,
+                       warm\_start=False)
+\end{Verbatim}
+            
+    \subsection{预测}\label{ux9884ux6d4b}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}19}]:} \PY{n}{y\PYZus{}score} \PY{o}{=} \PY{n}{clf2}\PY{o}{.}\PY{n}{predict\PYZus{}proba}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{p}{,} \PY{n}{clf2}\PY{o}{.}\PY{n}{classes\PYZus{}} \PY{o}{==} \PY{l+m+mi}{1}\PY{p}{]} 
+         \PY{n}{y\PYZus{}pred} \PY{o}{=} \PY{n}{clf2}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{X\PYZus{}test}\PY{p}{)} 
+\end{Verbatim}
+
+
+    \subsection{评估}\label{ux8bc4ux4f30}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}20}]:} \PY{n}{acc} \PY{o}{=} \PY{n}{accuracy\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}pred}\PY{p}{)}
+         \PY{n}{auc} \PY{o}{=} \PY{n}{roc\PYZus{}auc\PYZus{}score}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}score}\PY{p}{)}
+         \PY{n}{logloss} \PY{o}{=} \PY{n}{log\PYZus{}loss}\PY{p}{(}\PY{n}{y\PYZus{}test}\PY{p}{,} \PY{n}{y\PYZus{}score}\PY{p}{)}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{acc}\PY{p}{,} \PY{n}{auc}\PY{p}{,} \PY{n}{logloss}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+0.8225 0.687026914110774 0.4252496557629438
+
+    \end{Verbatim}
+
+    \textbf{从测试集上的评估指标来看，模型clf2比clf1,clf1\_p1好}
+
+    \section{模型迭代}\label{ux6a21ux578bux8fedux4ee3}
+
+将收集数据、特征工程、模型选择、模型参数选择、训练测试等步骤反复迭代，直到评价指标令人满意为止。
+
+    本文参考了
+https://github.com/lenguyenthedat/kaggle-for-fun/blob/master/avazu-ctr-prediction/avazu-ctr-prediction.py
+里面包括去除离群点、处理日期时间格式等操作
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
